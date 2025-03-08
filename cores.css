@@ -14,7 +14,7 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family:  "Helvetica Neue" ;
             color: var(--primary-color);
             background-color: var(--background-color);
             line-height: 1.6;
@@ -40,6 +40,8 @@
         }
 
         nav .logo {
+            font-family: "Helvetica Neue";
+
             font-size: 1.5em;
             font-weight: bold;
         }
@@ -51,9 +53,10 @@
         }
 
         nav ul li a {
+            font-family: "Helvetica Neue LT Std Font Family";
             color: var(--secondary-color);
             text-decoration: none;
-            font-size: 1em;
+            font-size: 1.3em;
             transition: color 0.3s;
         }
 
@@ -64,7 +67,7 @@
         /* Hero (Imagem de impacto) */
         .hero {
             height: 32vh; /* Altura da hero section */
-            background: url('./kwroc_cover.jpg') no-repeat;
+            background: url('./kwroc_cover.png') no-repeat;
             background-size: cover; /* Aumenta ou reduz o tamanho da imagem (100% = tamanho normal) */
             background-position: center -200px; /* Move a imagem para cima ou para baixo */
             display: flex;
