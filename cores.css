@@ -262,6 +262,7 @@ p {
 
 .links a,
 .linkutil a,
+.linkutil-sem-descricao a,
 .form-item a,
 .btn {
     display: flex;
@@ -280,6 +281,7 @@ p {
 
 .links a:hover,
 .linkutil a:hover,
+.linkutil-sem-descricao a:hover,
 .form-item a:hover,
 .btn:hover {
     background-color: var(--primary-color);
@@ -317,6 +319,22 @@ p {
     overflow: visible;
 }
 
+.linkutil-sem-descricao {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.btn-grande {
+    width: 600px;
+    min-height: 75px;
+    white-space: normal;
+    line-height: 1.4;
+    padding: 15px 25px;
+    font-size: 1.05em;
+    font-weight: 600;
+}
+
 /*==============================================
 =                  BOTÕES SIMPLES              =
 ==============================================*/
@@ -333,6 +351,7 @@ button {
 button:hover {
     background-color: #b00000;
 }
+
 
 /*==============================================
 =                  RODAPÉ                       =
