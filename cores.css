@@ -1,6 +1,7 @@
 /*==============================================
 =                  FONTES CUSTOM               =
 ==============================================*/
+
 @font-face {
     font-family: 'HelveticaNowBold';
     src: url('helveticanowtext-bold-demo.ttf') format('truetype');
@@ -15,10 +16,44 @@
     font-style: normal;
 }
 
+
 /*==============================================
-=             APLICAR FONTE GLOBAL             =
+=                  VARIÁVEIS                    =
 ==============================================*/
-body, p, li, a, button {
+
+:root {
+    --primary-color: #000000;
+    --secondary-color: #ffffff;
+    --accent-color: #B40101;
+    --background-color: #f4f4f4;
+}
+
+
+/*==============================================
+=                  RESET                       =
+==============================================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    font-family: 'HelveticaNowBold', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+p, li, a, button {
     font-family: 'HelveticaNowBold', sans-serif;
     letter-spacing: 0.5px;
 }
@@ -28,34 +63,15 @@ h1, h2, h3, .logo {
     letter-spacing: 0.5px;
 }
 
-/*==============================================
-=            CORES BASE / VARIÁVEIS           =
-==============================================*/
-:root {
-    --primary-color: #000000;
-    --secondary-color: #ffffff;
-    --accent-color: #B40101;
-    --background-color: #f4f4f4;
+img {
+    max-width: 100%;
 }
 
-/*==============================================
-=               RESET E BASE                  =
-==============================================*/
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    color: var(--primary-color);
-    background-color: var(--background-color);
-    line-height: 1.6;
-}
 
 /*==============================================
 =                  NAVEGAÇÃO                   =
 ==============================================*/
+
 nav {
     background-color: var(--primary-color);
     padding: 15px 20px;
@@ -63,7 +79,8 @@ nav {
     justify-content: space-between;
     align-items: center;
     color: var(--secondary-color);
-    height: 100px;
+    min-height: 100px;
+    width: 100%;
 }
 
 nav .logo {
@@ -74,6 +91,8 @@ nav .logo {
 nav ul {
     list-style: none;
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 40px;
 }
 
@@ -82,13 +101,18 @@ nav ul li a {
     text-decoration: none;
     font-size: 1.3em;
     transition: color 0.3s;
+    white-space: nowrap;
 }
 
 nav ul li a:hover {
     color: var(--accent-color);
 }
 
-/* Classes de destaque */
+
+/*==============================================
+=                  DESTAQUES                   =
+==============================================*/
+
 .kw {
     color: var(--accent-color);
     font-weight: bold;
@@ -98,43 +122,33 @@ nav ul li a:hover {
     color: white;
 }
 
+
 /*==============================================
 =                  HERO                        =
 ==============================================*/
+
 .hero {
-    height: 32vh; 
+    width: 100%;
+    height: 32vh;
     max-height: 600px;
     min-height: 300px;
+
     background: url('./kwroc_cover.avif') no-repeat center center;
     background-size: cover;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     position: relative;
     text-align: center;
 }
 
-/*==============================================
-=                  RESPONSIVO                  =
-==============================================*/
-@media (max-width: 768px) {
-    .hero {
-        background-size: contain;
-        background-position: center;
-        min-height: 50vh;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        background-size: contain;
-        height: 40vh;
-    }
-}
 
 /*==============================================
 =                  SECÇÕES                     =
 ==============================================*/
+
 section {
     padding: 50px 20px;
     text-align: center;
@@ -150,23 +164,27 @@ section p {
     max-width: 800px;
     margin: 0 auto;
     font-size: 1.2em;
+    overflow-wrap: break-word;
 }
 
+
 /*==============================================
-=                  TEAM / EQUIPA              =
+=                  EQUIPA                      =
 ==============================================*/
+
 .team-container {
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     gap: 20px;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     margin-top: 20px;
 }
 
 .team-member {
     text-align: center;
     max-width: 200px;
-    flex: 1;
+    flex: 1 1 160px;
 }
 
 .team-member img {
@@ -186,15 +204,18 @@ p {
     font-size: 14px;
 }
 
+
 /*==============================================
-=                  SALAS / CARDS              =
+=                  SALAS                       =
 ==============================================*/
+
 .salas {
     display: flex;
     flex-direction: column;
     gap: 30px;
     padding: 40px;
     align-items: center;
+    width: 100%;
 }
 
 .sala-row {
@@ -210,26 +231,36 @@ p {
     display: flex;
     flex-direction: row;
     align-items: center;
+
     background: #f4f4f4;
     border-radius: 12px;
+
     box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+
     width: 100%;
     max-width: 700px;
+    flex: 1 1 500px;
+
+    min-width: 0;
 }
 
 .sala img {
     width: 300px;
+    max-width: 45%;
     height: 250px;
     object-fit: cover;
     flex-shrink: 0;
+
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+
     margin-right: 20px;
 }
 
 .info {
     padding: 20px;
     flex-grow: 1;
+    min-width: 0;
 }
 
 .info h2 {
@@ -241,9 +272,11 @@ p {
     color: #555;
 }
 
+
 /*==============================================
-=                  BOTÕES / LINKS             =
+=                  BOTÕES / LINKS              =
 ==============================================*/
+
 .links,
 .linkutil-container,
 .form-container {
@@ -268,15 +301,21 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+
     background-color: var(--accent-color);
     color: var(--secondary-color);
+
     text-decoration: none;
     font-size: 1.1em;
+
     border-radius: 5px;
     padding: 10px;
+
     transition: background-color 0.3s;
     text-align: center;
-    white-space: nowrap;
+
+    white-space: normal;
+    overflow-wrap: break-word;
 }
 
 .links a:hover,
@@ -287,37 +326,64 @@ p {
     background-color: var(--primary-color);
 }
 
+
+/*==============================================
+=                  LINHAS DE LINKS             =
+==============================================*/
+
 .linkutil-row,
 .form-row {
     display: flex;
     justify-content: center;
-    gap: 125px;
+    align-items: stretch;
+
+    gap: 50px;
     flex-wrap: wrap;
+
     width: 100%;
+    max-width: 1200px;
+}
+
+.linkutil-row {
+    gap: 125px;
     max-width: 1000px;
 }
 
-.form-row {
-    gap: 50px;
-    max-width: 1200px;
-    align-items: stretch;
+.linkutil,
+.form-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    flex: 1 1 280px;
+    max-width: 350px;
+    min-width: 0;
 }
 
 .linkutil a,
 .form-item a {
-    width: 350px;
-    height: 75px;
+    width: 100%;
+    min-height: 75px;
 }
 
 .linkutil p,
 .form-item p {
     margin-top: 15px;
+
     font-size: 1.1em;
     color: var(--primary-color);
-    width: 340px;
+
+    width: 100%;
     height: auto;
+
     overflow: visible;
+    overflow-wrap: break-word;
 }
+
+
+/*==============================================
+=                  BOTÃO GRANDE                =
+==============================================*/
 
 .linkutil-sem-descricao {
     display: flex;
@@ -326,18 +392,25 @@ p {
 }
 
 .btn-grande {
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
+
     min-height: 75px;
+
     white-space: normal;
     line-height: 1.4;
+
     padding: 15px 25px;
+
     font-size: 1.05em;
     font-weight: 600;
 }
 
+
 /*==============================================
 =                  BOTÕES SIMPLES              =
 ==============================================*/
+
 button {
     padding: 10px;
     background-color: #d50000;
@@ -354,19 +427,26 @@ button:hover {
 
 
 /*==============================================
-=                  RODAPÉ                       =
+=                  RODAPÉ                      =
 ==============================================*/
+
 footer {
     background-color: var(--primary-color);
     color: var(--secondary-color);
+
     text-align: center;
+
     padding: 20px;
     margin-top: 50px;
+
+    width: 100%;
 }
 
+
 /*==============================================
-=                  ICONES SOCIAIS             =
+=                  ICONES SOCIAIS              =
 ==============================================*/
+
 .social-links {
     margin-top: 10px;
 }
@@ -380,4 +460,455 @@ footer {
 
 .social-links a:hover {
     color: var(--accent-color);
+}
+
+
+/*==============================================
+=                  TABLETS                     =
+=                  MAX 768PX                   =
+==============================================*/
+
+@media (max-width: 768px) {
+
+    /* Navegação */
+
+    nav {
+        height: auto;
+        min-height: 100px;
+
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 15px;
+        padding: 20px 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px 25px;
+    }
+
+    nav ul li a {
+        font-size: 1.1em;
+    }
+
+
+    /* Hero */
+
+    .hero {
+        width: 100%;
+        height: 200px;
+        min-height: 200px;
+        max-height: 200px;
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+
+    /* Secções */
+
+    section {
+        padding: 40px 20px;
+    }
+
+    section h2 {
+        font-size: 1.8em;
+    }
+
+    section p {
+        font-size: 1.1em;
+    }
+
+
+    /* Equipa */
+
+    .team-container {
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+
+    .team-member {
+        flex: 1 1 180px;
+        max-width: 200px;
+    }
+
+
+    /* Salas */
+
+    .salas {
+        padding: 30px 20px;
+    }
+
+    .sala-row {
+        gap: 20px;
+    }
+
+    .sala {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .sala img {
+        width: 40%;
+        max-width: 300px;
+    }
+
+
+    /* Formulários */
+
+    .form-row {
+        gap: 30px;
+    }
+
+    .form-item {
+        flex: 1 1 280px;
+        max-width: 350px;
+    }
+
+
+    /* Links úteis */
+
+    .linkutil-row {
+        gap: 30px;
+    }
+
+    .linkutil {
+        flex: 1 1 280px;
+        max-width: 350px;
+    }
+
+    .linkutil a,
+    .form-item a {
+        width: 100%;
+    }
+
+
+    /* Botão grande */
+
+    .btn-grande {
+        width: 100%;
+    }
+
+}
+
+/*==============================================
+=             IPADS E TABLETS GRANDES          =
+==============================================*/
+
+@media (min-width: 769px) and (max-width: 1366px) and (pointer: coarse) {
+
+    .hero {
+        width: 100%;
+        height: 240px;
+        min-height: 240px;
+        max-height: 240px;
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+}
+/*==============================================
+=                  TELEMÓVEIS                  =
+=                  MAX 480PX                   =
+==============================================*/
+
+@media (max-width: 480px) {
+
+    /* Navegação */
+
+    nav {
+        padding: 15px 10px;
+        gap: 15px;
+    }
+
+    nav .logo {
+        font-size: 1.3em;
+    }
+
+    nav ul {
+        width: 100%;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        justify-content: center;
+        gap: 10px 15px;
+    }
+
+    nav ul li {
+        text-align: center;
+    }
+
+    nav ul li a {
+        font-size: 0.9em;
+    }
+
+
+    /* Hero */
+
+    .hero {
+        width: 100%;
+
+        height: 110px;
+        min-height: 110px;
+        max-height: 110px;
+
+        background-size: 100% auto;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+
+    /* Secções */
+
+    section {
+        padding: 30px 15px;
+    }
+
+    section h2 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    section p {
+        font-size: 1em;
+        line-height: 1.6;
+    }
+
+
+    /* Equipa */
+
+    .team-container {
+        gap: 20px 10px;
+    }
+
+    .team-member {
+        flex: 1 1 calc(50% - 10px);
+        max-width: 160px;
+    }
+
+    .team-member img {
+        height: 200px;
+    }
+
+    .team-member h3 {
+        font-size: 16px;
+    }
+
+    .team-member p {
+        font-size: 13px;
+    }
+
+
+    /* Salas */
+
+    .salas {
+        padding: 20px 10px;
+        gap: 20px;
+    }
+
+    .sala-row {
+        gap: 20px;
+    }
+
+    .sala {
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .sala img {
+        width: 100%;
+        max-width: 100%;
+        height: 200px;
+
+        margin-right: 0;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .info {
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .info h2 {
+        font-size: 1.5em;
+    }
+
+    .info p {
+        font-size: 1em;
+    }
+
+    .btn {
+        width: 100%;
+        min-height: 45px;
+    }
+
+
+    /* Formulários */
+
+    .form-container {
+        gap: 30px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .form-item {
+        width: 100%;
+        max-width: 100%;
+        flex: 1 1 auto;
+    }
+
+    .form-item a {
+        width: 100%;
+        min-height: 60px;
+        padding: 12px;
+        font-size: 1em;
+    }
+
+    .form-item p {
+        width: 100%;
+        font-size: 0.95em;
+        margin-top: 10px;
+    }
+
+
+    /* Links úteis */
+
+    .linkutil-container {
+        gap: 30px;
+    }
+
+    .linkutil-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .linkutil {
+        width: 100%;
+        max-width: 100%;
+        flex: 1 1 auto;
+    }
+
+    .linkutil a {
+        width: 100%;
+        min-height: 60px;
+        font-size: 1em;
+    }
+
+    .linkutil p {
+        width: 100%;
+        font-size: 0.95em;
+        margin-top: 10px;
+    }
+
+
+    /* Botão grande */
+
+    .linkutil-sem-descricao {
+        width: 100%;
+    }
+
+    .btn-grande {
+        width: 100%;
+        max-width: 100%;
+
+        min-height: 70px;
+
+        font-size: 0.95em;
+        padding: 12px;
+    }
+
+
+    /* Botões */
+
+    button {
+        margin-left: 0;
+    }
+
+
+    /* Rodapé */
+
+    footer {
+        padding: 15px 10px;
+        margin-top: 30px;
+    }
+
+    footer p {
+        font-size: 12px;
+    }
+
+    .social-links {
+        margin-top: 10px;
+    }
+
+    .social-links a {
+        font-size: 20px;
+        margin: 0 8px;
+    }
+
+}
+
+/*==============================================
+=             ECRÃS MUITO GRANDES              =
+==============================================*/
+
+@media (min-width: 1920px) {
+
+    .hero {
+        width: 100%;
+        height: 450px;
+        min-height: 450px;
+        max-height: 450px;
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    section {
+        padding: 70px 40px;
+    }
+
+    section h2 {
+        font-size: 2.5em;
+    }
+
+    section p {
+        font-size: 1.4em;
+        max-width: 1100px;
+    }
+        html, body {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    footer {
+        margin-bottom: 0;
+    }
+
+}
+@media (min-width: 2560px) {
+
+    .hero {
+        height: 550px;
+        min-height: 550px;
+        max-height: 550px;
+    }
+
 }
